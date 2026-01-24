@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* 1. Register the Font in the Tailwind Theme */
+@theme {
+  /* 
+     In v4, defining a variable starting with --font-* 
+     automatically creates the utility class.
+     Here, --font-bebas creates the class: font-bebas
+  */
+  --font-bebas: "BebasNeue", sans-serif;
+  --font-recta: "Recta", sans-serif;
+}
+
+/* 2. Load the Font File */
+/* 
+   We don't need @layer base anymore for this; 
+   standard CSS rules work alongside Tailwind v4 
+*/
+@font-face {
+  font-family: "BebasNeue";
+  /* Since file is in public/font, we reference from root / */
+  src: url("/font/BebasNeue-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recta";
+  src: url("/font/Recta-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
