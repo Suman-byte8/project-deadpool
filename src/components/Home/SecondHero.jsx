@@ -1,4 +1,17 @@
 import React from 'react'
+import { GoStarFill } from "react-icons/go";
+import { MdArrowOutward } from "react-icons/md";
+import ThreeDHoverGallery from '../lightswind/3d-hover-gallery';
+
+
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import ArrowButton from './ArrowButton';
+
+import { IoMdArrowDropleft } from "react-icons/io";
+import { IoMdArrowDropright } from "react-icons/io";
+
 
 const SecondHero = () => {
 
@@ -24,16 +37,34 @@ const SecondHero = () => {
     }
   ]
 
+  const socials = [
+    {
+      name: "Twitter",
+      icon: <FaSquareXTwitter />,
+      link: ""
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      link: ""
+    },
+    {
+      name: "Youtube",
+      icon: <FaYoutube />,
+      link: ""
+    }
+  ]
+
   return (
-    <div class="w-full bg-[#151515] min-h-[70vh] absolute top-[100vh] left-0 z-1 flex flex-col justify-center p-15">
+    <div className="w-full bg-[#151515] min-h-[70vh] absolute top-[100vh] left-0 z-1 flex flex-col justify-center p-15">
 
 
 
       {/* Grid Section */}
-      <div class="grid grid-cols-5 grid-rows-3 w-full h-full gap-4 relative top-14 py-14">
+      <div className="grid grid-cols-5 grid-rows-3 w-full h-full gap-4 relative top-14 py-14">
 
         {/* 1st cell */}
-        <div class=" flex flex-col items-center justify-center p-4 gap-4">
+        <div className=" flex flex-col items-center justify-center p-4 gap-4">
           <div className="w-full flex items-center gap-2">
             <div className="_production bg-[#b12331] w-10 h-10 flex items-center justify-center rounded-full p-2">
               <img src="/src/assets/deadpool_mask.png" alt="" className="w-full h-full object-contain" />
@@ -47,7 +78,7 @@ const SecondHero = () => {
         </div>
 
         {/* 2nd cell */}
-        <div class="flex flex-col items-center justify-center p-4 col-span-3">
+        <div className="flex flex-col items-center justify-center p-4 col-span-3">
           <div className="w-[60vh] flex items-center justify-evenly">
             {
               data.map((element, index) => (
@@ -61,42 +92,58 @@ const SecondHero = () => {
         </div>
 
         {/* 3rd cell */}
-        <div class="flex flex-col items-center justify-center p-4">
+        <div className="flex flex-col items-center justify-center p-4">
           <div className="w-full flex">
             <div className=" bg-[#b12331] h-16 w-6 mr-4"></div>
             <div className="">
-              <p className="font-bebas text-white text-2xl uppercase">"Hugh Jackman Said He really was done playing the Charecter of Logan/Wolverine after 2017's 'Logan'</p>
+              <p className="font-bebas text-white text-2xl uppercase">"Hugh Jackman Said He really was done playing the Charecter of Logan/Wolverine after 2017's 'Logan' <MdArrowOutward className="inline" /></p>
             </div>
           </div>
         </div>
 
+        {/* 4th cell */}
+        <div className="flex flex-col items-center justify-center p-4">
+          <div className="w-full flex items-start gap-5 flex-col">
+            <div className="_circle w-16 h-16 rounded-full border border-white flex items-center justify-center">
+              <h1 className="font-bebas text-white text-3xl -rotate-20">02</h1>
+            </div>
 
-
-        <div class="bg-green-500/20 border border-green-500 flex flex-col items-center justify-center p-4 hover:bg-green-500/40 transition-colors">
-          <span class="font-bold text-green-300">Box 4</span>
-          <span class="text-xs text-green-200 mt-2">w-1/3 (col-span-1)</span>
+            <div className="flex items-center gap-2 text-[#b12331] ">
+              <GoStarFill />
+              <GoStarFill />
+              <GoStarFill />
+              <GoStarFill />
+              <GoStarFill className='text-white' />
+            </div>
+          </div>
         </div>
 
-        <div class="bg-emerald-500/20 border border-emerald-500 flex flex-col items-center justify-center p-4 hover:bg-emerald-500/40 transition-colors col-span-3 row-span-2">
-          <span class="font-bold text-emerald-300">Box 5</span>
-          <span class="text-xs text-emerald-200 mt-2">w-1/3 (col-span-1)</span>
+        {/* 5th cell */}
+        <div className="flex flex-col items-center justify-center p-4 col-span-3 row-span-2">
+          <ThreeDHoverGallery />
         </div>
 
-        <div class="bg-teal-500/20 border border-teal-500 flex flex-col items-center justify-center p-4 hover:bg-teal-500/40 transition-colors">
-          <span class="font-bold text-teal-300">Box 6</span>
-          <span class="text-xs text-teal-200 mt-2">w-1/3 (col-span-1)</span>
+        {/* 6th cell */}
+        <div className=" flex items-center justify-center p-4 ">
+          <div className="w-full flex text-white gap-4 justify-end">
+            {
+              socials.map((element, index) => (
+                <div key={index} className="w-12 h-12 flex items-center justify-center rounded-full p-2 bg-linear-to-r from-[#ede9e9] to-[#1b1b1b]">
+                  <span className="text-2xl">{element.icon}</span>
+                </div>
+              ))
+            }
+          </div>
         </div>
 
-
-        <div class="bg-blue-500/20 border border-blue-500 flex flex-col items-center justify-center p-4 hover:bg-blue-500/40 transition-colors">
-          <span class="font-bold text-blue-300">Box 7</span>
-          <span class="text-xs text-blue-200 mt-2">w-1/3 (col-span-1)</span>
+        {/* 7th cell */}
+        <div className="flex items-center justify-start p-4 ">
+          <ArrowButton className={"bg-[#b12331] text-white "} icon={<IoMdArrowDropleft className="inline" />} />
         </div>
 
-
-        <div class="bg-indigo-500/20 border border-indigo-500 flex flex-col items-center justify-center p-4 hover:bg-indigo-500/40 transition-colors ">
-          <span class="font-bold text-indigo-300">Box 8</span>
-          <span class="text-xs text-indigo-200 mt-2">w-1/3 (col-span-1)</span>
+        {/* 8th cell */}
+        <div className="flex items-center justify-end p-4">
+          <ArrowButton className={"bg-[#ffffff]"} icon={<IoMdArrowDropright className="inline" />} />
         </div>
 
 

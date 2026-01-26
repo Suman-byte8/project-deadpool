@@ -1,5 +1,5 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
 /* 1. Register the Font in the Tailwind Theme */
 @theme {
   /* 
