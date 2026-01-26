@@ -2,7 +2,7 @@ import React from 'react'
 import { MdArrowOutward } from "react-icons/md";
 const BookNow = () => {
     return (
-        <section className='w-full text-white px-15 absolute top-full mt-10 left-[50%] translate-x-[-50%] translate-y-[-50%] flex items-center justify-between z-10 bg-[#151515] py-15'>
+        <section className='w-full text-white px-15 absolute -bottom-5 left-[50%] translate-x-[-50%] flex items-center justify-between z-10 py-15'>
 
             <div className="_story flex flex-col gap-1">
 

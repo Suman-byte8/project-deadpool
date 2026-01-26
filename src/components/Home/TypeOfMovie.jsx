@@ -9,7 +9,7 @@ const TypeOfMovie = () => {
     ]
 
     return (
-        <section className='_movieDetails w-full absolute top-[15vh] px-15 flex items-center justify-between border-b border-[#818181]/30 pb-4'>
+        <section className='_movieDetails w-full absolute top-[10vh] px-15 flex items-center justify-between border-b border-[#818181]/30 pb-2'>
 
             <div className="_movieType flex">
                 {

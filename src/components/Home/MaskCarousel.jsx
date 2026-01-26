@@ -11,7 +11,7 @@ const MaskCarousel = (props) => {
     const items = new Array(80).fill(null);
 
     return (
-        <div className={`w-full overflow-hidden ${props.className} py-2 relative top-0 left-0 `}>
+        <div className={`w-full overflow-hidden ${props.className}`}>
 
             {/* 
          The Motion Div

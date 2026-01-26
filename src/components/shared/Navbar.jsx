@@ -4,7 +4,7 @@ import { LuUserRound } from "react-icons/lu";
 
 const Navbar = () => {
     return (
-        <nav className='w-full h-16 bg-transparent absolute top-0 left-0 z-50 flex items-center px-15 md:px-15 text-white'>
+        <nav className='w-full h-16 bg-transparent fixed bg-blend-overlay top-0 left-0 z-50 flex items-center px-15 md:px-15 text-white'>
             {/* Developer Name - My Name Buddy */}
             <div className="_nameLogo">
                 <h1 className="_devName uppercase text-3xl font-medium font-bebas">Su<span className="_devName text-[#ac2434]">man</span></h1>
