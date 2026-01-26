@@ -3,19 +3,20 @@ import TypeOfMovie from '../Home/TypeOfMovie'
 import RedCircle from '../Home/RedCircle'
 import MidLine from '../Home/MidLine'
 import HeroText from './HeroText'
-import SecondHero from './SecondHero'
+import BookNow from './BookNow'
+
 
 
 
 const Hero = () => {
   return (
-    <section className='w-full min-h-screen bg-[#151515] relative'>
+    <section className='w-full h-screen bg-[#151515] relative overflow-hidden'>
       <TypeOfMovie />
       <RedCircle />
       <MidLine />
       <HeroText />
+      <BookNow />
 
-      <SecondHero />
 
     </section>
   )

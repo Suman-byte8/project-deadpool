@@ -4,7 +4,7 @@ import Navbar from './components/shared/Navbar'
 
 const App = () => {
   return (
-    <div className="w-full h-full"> 
+    <div className="w-full h-full bg-[#151515]"> 
       <Navbar />
       <Home />
     </div>
