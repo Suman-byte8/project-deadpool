@@ -10,7 +10,7 @@ import BookNow from './BookNow'
 
 const Hero = () => {
   return (
-    <section className='w-full h-screen bg-[#151515] relative overflow-hidden'>
+    <section className='w-full min-h-screen md:h-screen bg-[#151515] relative overflow-hidden flex flex-col md:block'>
       <TypeOfMovie />
       <RedCircle />
       <MidLine />

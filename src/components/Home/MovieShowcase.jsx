@@ -21,12 +21,12 @@ const MovieShowcase = () => {
             </div>
 
             {/* Dates Side-by-Side */}
-            <div className='w-full flex justify-between px-20 absolute top-1/2 -translate-y-1/2 z-10'>
+            <div className='w-full flex flex-col md:flex-row justify-center md:justify-between px-4 md:px-20 absolute top-1/2 -translate-y-1/2 z-10 gap-8 md:gap-0'>
                 <div className='flex flex-col items-center'>
-                    <span className='text-7xl text-black'>May 3</span>
+                    <span className='text-5xl md:text-7xl text-black'>May 3</span>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <span className='text-7xl text-black'>2024</span>
+                    <span className='text-5xl md:text-7xl text-black'>2024</span>
                 </div>
             </div>
 

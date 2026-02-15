@@ -112,7 +112,7 @@ const TransitionSection = () => {
                     left: '50%',
                     x: '-50%',
                 }}
-                className='z-50 w-[550px] pointer-events-none origin-bottom'
+                className='z-50 w-[90vw] md:w-[550px] pointer-events-none origin-bottom'
             >
                 <img
                     src={deadpoolLove}
