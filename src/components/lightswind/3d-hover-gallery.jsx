@@ -1,11 +1,12 @@
 
 import React, { useRef, useEffect, useState } from "react";
+import gallery1 from "../../assets/gallery_1.png";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 const ThreeDHoverGallery = ({
     images = [
-        "/src/assets/gallery_1.png",
+        gallery1,
         "https://i.pinimg.com/736x/5f/ac/45/5fac4575da9a578825aa45df0f0e2e6a.jpg",
         "https://i.pinimg.com/736x/c0/d0/74/c0d0748a2f27563d61b234f3e0ea0e29.jpg",
     ],

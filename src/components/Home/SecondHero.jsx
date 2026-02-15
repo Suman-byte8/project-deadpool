@@ -9,6 +9,9 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import ArrowButton from './ArrowButton';
 
+import { motion, useScroll, useTransform } from 'framer-motion';
+import deadpoolMask from '../../assets/deadpool_mask.png';
+import marvelLogo from '../../assets/marvel_studios_logo.png';
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 
@@ -67,13 +70,13 @@ const SecondHero = () => {
         <div className=" flex flex-col items-center justify-center p-4 gap-4">
           <div className="w-full flex items-center gap-2">
             <div className="_production bg-[#b12331] w-10 h-10 flex items-center justify-center rounded-full p-2">
-              <img src="/src/assets/deadpool_mask.png" alt="" className="w-full h-full object-contain" />
+              <img src={deadpoolMask} alt="" className="w-full h-full object-contain" />
             </div>
             <span className="uppercase font-bebas text-white tracking-[0.2rem]">Production</span>
           </div>
 
           <div className="w-full">
-            <img src="/src/assets/marvel_studios_logo.png" alt="" className="w-3/4" />
+            <img src={marvelLogo} alt="" className="w-3/4" />
           </div>
         </div>
 

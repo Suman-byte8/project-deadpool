@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import deadpoolMask from '../../assets/deadpool_mask.png';
 
 const MovieInfo = () => {
     return (
@@ -72,7 +73,7 @@ const MovieInfo = () => {
                     <div className='w-[320px] bg-[#151515] text-white rounded-[40px] p-6 flex flex-col items-center relative z-20 shadow-2xl'>
                         {/* Card Icon Header */}
                         <div className='absolute -top-4 w-10 h-10 bg-[#b12331] rounded-full flex items-center justify-center border-4 border-[#f8f8f8]'>
-                            <img src="/src/assets/deadpool_mask.png" alt="" className='w-6 h-6 object-contain' />
+                            <img src={deadpoolMask} alt="" className='w-6 h-6 object-contain' />
                         </div>
 
                         <span className='text-gray-400 tracking-[0.3em] text-xs mb-1 mt-4'>FILM</span>

@@ -2,11 +2,12 @@ import React, { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import MovieInfo from './MovieInfo'
 import MovieShowcase from './MovieShowcase'
+import deadpoolLove from '../../assets/deadpool-love.png'
 
 const TransitionSection = () => {
     const containerRef = useRef(null)
     const [scrollPhase, setScrollPhase] = useState('before') // 'before' | 'during' | 'after'
-    
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
@@ -23,7 +24,7 @@ const TransitionSection = () => {
         // Set initial phase immediately on mount
         const initialValue = scrollYProgress.get()
         updateScrollPhase(initialValue)
-        
+
         // Subscribe to scroll changes
         const unsubscribe = scrollYProgress.on("change", updateScrollPhase)
         return () => unsubscribe()
@@ -105,7 +106,7 @@ const TransitionSection = () => {
             <MovieShowcase />
 
             <motion.div
-                style={{ 
+                style={{
                     ...getPositionStyle(),
                     scale: getScale(),
                     left: '50%',
@@ -114,7 +115,7 @@ const TransitionSection = () => {
                 className='z-50 w-[550px] pointer-events-none origin-bottom'
             >
                 <img
-                    src="/src/assets/deadpool-love.png"
+                    src={deadpoolLove}
                     alt="Deadpool Heart"
                     className='w-full h-auto drop-shadow-2xl'
                 />

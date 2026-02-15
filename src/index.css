@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin 'lightswind/plugin';
+
 /* 1. Register the Font in the Tailwind Theme */
 @theme {
   /* 
@@ -18,8 +19,7 @@
 */
 @font-face {
   font-family: "BebasNeue";
-  /* Since file is in public/font, we reference from root / */
-  src: url("/font/BebasNeue-Regular.woff2") format("woff2");
+  src: url("./assets/font/BebasNeue-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -27,7 +27,7 @@
 
 @font-face {
   font-family: "Recta";
-  src: url("/font/Recta-Regular.woff2") format("woff2");
+  src: url("./assets/font/Recta-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
