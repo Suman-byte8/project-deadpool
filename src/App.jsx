@@ -1,13 +1,14 @@
 import React from 'react'
 import Home from './pages/Home'
 import Navbar from './components/shared/Navbar'
+import ScrollProvider from './components/Common/ScrollProvider'
 
 const App = () => {
   return (
-    <div className="w-full h-full bg-[#151515]"> 
+    <ScrollProvider>
       <Navbar />
       <Home />
-    </div>
+    </ScrollProvider>
   )
 }
 
