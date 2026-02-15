@@ -8,7 +8,7 @@ const HeroImage = () => {
                 <img src="/src/assets/deadpool_png.png" alt="" className='w-full h-full object-contain' />
             </div>
             <div className="absolute bottom-0 left-0 w-full">
-                <MaskCarousel imgSrc={"/src/assets/deadpool_mask.png"} className="bg-[#b12331] -rotate-1 py-3" />
+                <MaskCarousel imgSrc={"/src/assets/deadpool_mask.png"} className="bg-[#b12331] -rotate-1 py-3 z-5" />
             </div>
         </section>
     )

@@ -56,7 +56,7 @@ const SecondHero = () => {
   ]
 
   return (
-    <div className="w-full bg-[#151515] min-h-[70vh] absolute top-[100vh] left-0 z-1 flex flex-col justify-center p-15">
+    <div className="w-full bg-[#151515] min-h-[70vh] absolute top-[100vh] left-0 z-1 flex flex-col justify-center p-15 rounded-br-[50px] rounded-bl-[50px] border-b-5 border-[#b12331]">
 
 
 
