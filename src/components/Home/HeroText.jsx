@@ -1,5 +1,6 @@
 import React from 'react'
 import MaskCarousel from './MaskCarousel'
+import deadpoolMask from '../../assets/deadpool_mask.png'
 
 const HeroText = () => {
     return (
@@ -33,7 +34,7 @@ const HeroText = () => {
             </div>
 
             <div className="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-x-0 md:translate-y-0 md:static">
-                <MaskCarousel imgSrc={"/src/assets/deadpool_mask.png"} className="bg-[#181a1c] -rotate-2 opacity-50 md:opacity-100" />
+                <MaskCarousel imgSrc={deadpoolMask} className="bg-[#181a1c] -rotate-2 opacity-50 md:opacity-100" />
             </div>
 
         </section>
