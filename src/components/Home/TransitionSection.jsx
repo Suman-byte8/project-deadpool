@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import MovieInfo from './MovieInfo'
 import MovieShowcase from './MovieShowcase'
 
 const TransitionSection = () => {
     const containerRef = useRef(null)
+    const [scrollPhase, setScrollPhase] = useState('before') // 'before' | 'during' | 'after'
+    
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
@@ -17,30 +19,85 @@ const TransitionSection = () => {
         restDelta: 0.001
     })
 
-    // Animation Values
-    // Start: Bottom-Right of MovieInfo (top: ~90%, left: ~80%, scale: 1)
-    // End: Center of MovieShowcase (top: ~150vh, left: 50%, scale: 1.15)
+    useEffect(() => {
+        // Set initial phase immediately on mount
+        const initialValue = scrollYProgress.get()
+        updateScrollPhase(initialValue)
+        
+        // Subscribe to scroll changes
+        const unsubscribe = scrollYProgress.on("change", updateScrollPhase)
+        return () => unsubscribe()
+    }, [scrollYProgress])
 
-    // We assume both sections are roughly 100vh. 
-    // The transition happens as we scroll through the first section into the second.
+    const updateScrollPhase = (value) => {
+        if (value <= 0) {
+            setScrollPhase('before')
+        } else if (value >= 1) {
+            setScrollPhase('after')
+        } else {
+            setScrollPhase('during')
+        }
+    }
 
-    // Vertical position: Moves from approx center of MovieInfo to center of MovieShowcase
-    // MovieInfo Center ~ 50vh. Image offset ~ +10% vh based on layout analysis.
-    // Start: 60vh. End: 150vh (Center of second section)
-    const top = useTransform(smoothProgress, [0.2, 0.8], ["60vh", "150vh"])
+    // Scale: 0.7 at start, 1.0 at end
+    const scale = useTransform(smoothProgress, [0, 1], [0.7, 1.0])
 
-    // Horizontal position: Centered in both cases
-    // Was centered in MovieInfo (offset by trivial amount). Centered in MovieShowcase.
-    const left = useTransform(smoothProgress, [0.2, 0.8], ["50%", "50%"])
+    /**
+     * SCROLL PHASES:
+     * 
+     * 'before': User hasn't reached the section yet
+     *   - Position: absolute, at bottom of MovieInfo (top: 100vh, translateY: -100%)
+     *   - Scale: 0.7 (initial)
+     * 
+     * 'during': User is scrolling through the section
+     *   - Position: fixed, stuck to viewport bottom
+     *   - Scale: animates from 0.7 to 1.0
+     * 
+     * 'after': User has scrolled past the section
+     *   - Position: absolute, at bottom of container (MovieShowcase)
+     *   - Scale: 1.0 (final)
+     */
 
-    // X Offset: Maintain center alignment
-    const x = useTransform(smoothProgress, [0.2, 0.8], ["-50%", "-50%"])
+    const getPositionStyle = () => {
+        switch (scrollPhase) {
+            case 'before':
+                return {
+                    position: 'absolute',
+                    top: '100vh',
+                    bottom: 'auto',
+                    y: '-100%',
+                }
+            case 'during':
+                return {
+                    position: 'fixed',
+                    top: 'auto',
+                    bottom: 0,
+                    y: 0,
+                }
+            case 'after':
+                return {
+                    position: 'absolute',
+                    top: 'auto',
+                    bottom: 0,
+                    y: 0,
+                }
+            default:
+                return {}
+        }
+    }
 
-    // Scale: Starts smaller (0.85) and grows to 1.25
-    const scale = useTransform(smoothProgress, [0.2, 0.8], [0.85, 1.25])
-
-    // Rotation: No rotation needed
-    const rotate = useTransform(smoothProgress, [0.2, 0.8], [0, 0])
+    const getScale = () => {
+        switch (scrollPhase) {
+            case 'before':
+                return 0.7
+            case 'during':
+                return scale
+            case 'after':
+                return 1
+            default:
+                return 0.7
+        }
+    }
 
     return (
         <div ref={containerRef} className='relative w-full'>
@@ -48,8 +105,13 @@ const TransitionSection = () => {
             <MovieShowcase />
 
             <motion.div
-                style={{ top, left, x, scale, rotate }}
-                className='absolute z-50 w-[500px] pointer-events-none origin-center'
+                style={{ 
+                    ...getPositionStyle(),
+                    scale: getScale(),
+                    left: '50%',
+                    x: '-50%',
+                }}
+                className='z-50 w-[550px] pointer-events-none origin-bottom'
             >
                 <img
                     src="/src/assets/deadpool-love.png"

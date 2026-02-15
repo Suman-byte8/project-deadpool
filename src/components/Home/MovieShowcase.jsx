@@ -9,7 +9,7 @@ const MovieShowcase = () => {
     })
 
     return (
-        <section ref={containerRef} className='w-full min-h-screen bg-white relative flex flex-col items-center justify-center overflow-hidden py-32 font-bebas z-12'>
+        <section ref={containerRef} className='w-full min-h-[70vh] bg-white relative flex flex-col items-center justify-center overflow-hidden py-32 font-bebas z-12'>
 
             {/* Background Decorative Circle */}
             <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vh] h-[90vh] border border-gray-100 rounded-full pointer-events-none'></div>
